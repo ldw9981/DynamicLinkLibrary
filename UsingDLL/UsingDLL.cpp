@@ -2,18 +2,18 @@
 //
 
 #include <iostream>
-#include "../StaticImportDLL/StaticImportDLL.h"
+#include "../MyFuncLib/MyFuncLib.h"
 
 #ifdef _DEBUG
-#pragma comment(lib, "../x64/Debug/StaticImportDLL.lib")
+#pragma comment(lib, "../x64/Debug/MyFuncLib.lib")
 #else   
-#pragma comment(lib, "../x64/Release/StaticImportDLL.lib")
+#pragma comment(lib, "../x64/Release/MyFuncLib.lib")
 #endif
 
 int main()
 {
 	int a = 10, b = 20;
-	int result = StaticImport_Add(a, b);
+	int result = MyFuncLib_Add(a, b);
 
 
     std::cout << "Hello World!\n";

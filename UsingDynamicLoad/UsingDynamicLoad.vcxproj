@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{727472b8-62fa-4a13-bd0b-7692b8b2fdfe}</ProjectGuid>
-    <RootNamespace>UsingDLL</RootNamespace>
+    <ProjectGuid>{f37c0e33-3d72-43ef-8683-7e27846d82f3}</ProjectGuid>
+    <RootNamespace>UsingDynamicLoad</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,7 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="UsingDLL.cpp" />
+    <ClCompile Include="UsingDynamicLoad.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
