@@ -20,8 +20,8 @@ void Run_ManualFactory_Example()
 	ComPtr<IMyCOMObject2> myCOMObject;
 	ComPtr<IOtherObject> otherObject;
 	
-	CreateMyFactory(IID_IMyFactory2, (void**)myFactory.GetAddressOf());
-	myFactory->CreateInstance(nullptr, IID_IMyCOMObject2, (void**)myCOMObject.GetAddressOf());
+	CreateMyFactory(__uuidof(myFactory), (void**)myFactory.GetAddressOf());
+	myFactory->CreateInstance(nullptr, __uuidof(myCOMObject), (void**)myCOMObject.GetAddressOf());
 	myCOMObject->Hello();
 	myCOMObject->Bye();
 

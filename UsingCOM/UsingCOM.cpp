@@ -6,17 +6,15 @@
 #include "CoCreateInstanceExample.h"
 #include "ManualFactoryExample.h"
 
-#define USE_CoCreateInstance
+
 
 int main()
 {
     HRESULT hr = CoInitialize(nullptr);
 
-#ifdef USE_CoCreateInstance
-    Run_CoCreateInstance_Example();
-#else   
+    Run_CoCreateInstance_Example();  
+
     Run_ManualFactory_Example();  
-#endif
 
     CoUninitialize();
 }
