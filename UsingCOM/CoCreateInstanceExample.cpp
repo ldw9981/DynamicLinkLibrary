@@ -5,7 +5,6 @@
 
 void Run_CoCreateInstance_Example()
 {
-	CoInitialize(nullptr);
 	IMyCOMObject2* p = nullptr;
 	// COM 라이브러리를 사용하기위해 필요한것 
 	// 1. 레지스트리에 등록된 ClassID (DLL위치가 저장됨) 
@@ -17,5 +16,5 @@ void Run_CoCreateInstance_Example()
 		p->Bye();
 		p->Release();
 	}
-	CoUninitialize();
+	
 }

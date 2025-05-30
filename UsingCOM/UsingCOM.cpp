@@ -2,16 +2,21 @@
 //
 
 #include <iostream>
+#include <windows.h>
 #include "CoCreateInstanceExample.h"
 #include "ManualFactoryExample.h"
 
-//#define USE_CUSTOM_FACTORY
+#define USE_CoCreateInstance
 
 int main()
 {
-#ifdef USE_CUSTOM_FACTORY
-    Run_ManualFactory_Example();
-#else 
+    HRESULT hr = CoInitialize(nullptr);
+
+#ifdef USE_CoCreateInstance
     Run_CoCreateInstance_Example();
-#endif // USE_FACTORY
+#else   
+    Run_ManualFactory_Example();  
+#endif
+
+    CoUninitialize();
 }
