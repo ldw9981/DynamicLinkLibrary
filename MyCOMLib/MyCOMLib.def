@@ -1,3 +1,6 @@
-LIBRARY "MyCOMLib"
+LIBRARY MyCOMLib
 EXPORTS
     CreateMyFactory
+    DllRegisterServer PRIVATE
+    DllUnregisterServer PRIVATE
+    DllGetClassObject PRIVATE

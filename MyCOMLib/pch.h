@@ -11,5 +11,9 @@
 #include "framework.h"
 #include <string>
 #include <iostream>
+#include <combaseapi.h> // StringFromCLSID
+#include <string>
+#include <objbase.h> // IClassFactory, CLSID, REFIID
+#include <olectl.h> //SELFREG_E_CLASS
 
 #endif //PCH_H

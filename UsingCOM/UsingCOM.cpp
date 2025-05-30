@@ -5,11 +5,11 @@
 #include "CoCreateInstanceExample.h"
 #include "ManualFactoryExample.h"
 
-#define USE_FACTORY
+//#define USE_CUSTOM_FACTORY
 
 int main()
 {
-#ifdef USE_FACTORY
+#ifdef USE_CUSTOM_FACTORY
     Run_ManualFactory_Example();
 #else 
     Run_CoCreateInstance_Example();

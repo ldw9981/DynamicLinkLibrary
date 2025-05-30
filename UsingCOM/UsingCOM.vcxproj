@@ -131,6 +131,11 @@
     <ClInclude Include="CoCreateInstanceExample.h" />
     <ClInclude Include="ManualFactoryExample.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyCOMLib\MyCOMLib.vcxproj">
+      <Project>{32b72f19-df0a-48d4-9f57-1b3a4a51b9b1}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

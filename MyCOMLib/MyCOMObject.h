@@ -5,14 +5,18 @@
 class MyCOMObject : public IMyCOMObject2 {
 	ULONG m_refCount = 1;
 public:
-	HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppv) override {
-		if (riid == IID_IUnknown || riid == IID_IMyCOMObject) {
+	HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppv) override 
+	{
+		if (riid == IID_IUnknown || riid == IID_IMyCOMObject) 
 			*ppv = static_cast<IMyCOMObject*>(this);
-			AddRef();
-			return S_OK;
+		else if ( riid == IID_IMyCOMObject2) 
+			*ppv = static_cast<IMyCOMObject2*>(this);
+		else {
+			*ppv = nullptr;
+			return E_NOINTERFACE;
 		}
-		*ppv = nullptr;
-		return E_NOINTERFACE;
+		AddRef();
+		return S_OK;
 	}
 	ULONG STDMETHODCALLTYPE AddRef() override { return ++m_refCount; }
 	ULONG STDMETHODCALLTYPE Release() override {

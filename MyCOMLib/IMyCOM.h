@@ -19,9 +19,9 @@ static const CLSID CLSID_MyCOMObject =
 
 
 interface __declspec(uuid("5A51E631-8D28-4F78-B3A6-DBD4B55E527E"))
-IMyFactory : public IUnknown
+IMyFactory : public IClassFactory
 {
-	virtual HRESULT CreateInstance(IMyCOMObject * *ppObj) = 0;
+	STDMETHOD(CreateInstance)(IUnknown* pUnkOuter, REFIID riid, void** ppv)=0;
 };
 const IID IID_IMyFactory = __uuidof(IMyFactory);
 
