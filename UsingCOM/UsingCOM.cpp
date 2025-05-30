@@ -12,8 +12,10 @@ int main()
 {
     HRESULT hr = CoInitialize(nullptr);
 
+    // 초기 전통적 COM객체를 사용하는 방법
     Run_CoCreateInstance_Example();  
 
+    // 수동으로 팩토리를 사용하여 COM객체를 사용하는방법
     Run_ManualFactory_Example();  
 
     CoUninitialize();
