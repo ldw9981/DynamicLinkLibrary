@@ -1,21 +1,29 @@
 #pragma once
 #include <Unknwn.h>
 
+// {5EF1E288-F371-4AEB-8438-99B297314BA9}
+static const CLSID CLSID_MyCOMObject =
+{ 0x5ef1e288, 0xf371, 0x4aeb, { 0x84, 0x38, 0x99, 0xb2, 0x97, 0x31, 0x4b, 0xa9 } };
+
 interface __declspec(uuid("AF2B7063-8666-418C-9E1B-47A64EF5A1AB")) 
 IMyCOMObject : public IUnknown {  
-    virtual void Hello() = 0;  
+    virtual void Hello() = 0;
+	virtual HRESULT DoSomething(int value) = 0;
 };  
 const IID IID_IMyCOMObject = __uuidof(IMyCOMObject);
 
 interface __declspec(uuid("1F47836D-6904-48DB-B87C-F67E3316D679"))
-IMyCOMObject2 : public IMyCOMObject {
+IMyCOMObject2 : public IMyCOMObject{
 	virtual void Bye() = 0;
 };
 const IID IID_IMyCOMObject2 = __uuidof(IMyCOMObject2);
 
-// {5EF1E288-F371-4AEB-8438-99B297314BA9}
-static const CLSID CLSID_MyCOMObject =
-{ 0x5ef1e288, 0xf371, 0x4aeb, { 0x84, 0x38, 0x99, 0xb2, 0x97, 0x31, 0x4b, 0xa9 } };
+interface __declspec(uuid("D2ACA762-2529-4FC3-ABE1-51ECB35D775B"))
+IMyCOMObjectExtraFeature : public IUnknown{
+	virtual void Jump() = 0;
+};
+const IID IID_IMyCOMObjectExtraFeature = __uuidof(IMyCOMObjectExtraFeature);
+
 
 
 interface __declspec(uuid("5A51E631-8D28-4F78-B3A6-DBD4B55E527E"))
