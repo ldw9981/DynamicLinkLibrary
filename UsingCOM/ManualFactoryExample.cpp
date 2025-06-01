@@ -8,9 +8,9 @@
 using namespace Microsoft::WRL;
 
 #ifdef _DEBUG
-#pragma comment(lib, "../x64/Debug/MyCOMLib.lib")
+#pragma comment(lib, "../x64/Debug/3_MyCOMLib.lib")
 #else
-#pragma comment(lib, "../x64/Release/MyCOMLib.lib")
+#pragma comment(lib, "../x64/Release/3_MyCOMLib.lib")
 #endif
 
 
@@ -18,24 +18,27 @@ void Run_ManualFactory_Example()
 {	
 	// 인터페이스 포인터를 다루는 스마트 포인터
 	// 변수가 파괴될때 클래스 내부에서 인터페이스의 Release를 호출한다.
-	ComPtr<IMyFactory2> myFactory;
-	ComPtr<IMyCOMObject2> myCOMObject;
-	ComPtr<IOtherObject> otherObject;
+	IMyFactory2* pIMyFactory;
+	ComPtr<IMyCOMObject2> cpMyCOMObject;
+	ComPtr<IOtherObject> cpOtherObject;
 	
-	CreateMyFactory(__uuidof(myFactory), // 팩토리의 인터페이스 ID
-		(void**)myFactory.GetAddressOf()); // 인터페이스 포인터를 저장할 변수
+	IID test = __uuidof(pIMyFactory);
+	CreateMyFactory(test, // 팩토리의 인터페이스 ID
+		(void**)&pIMyFactory); // 인터페이스 포인터를 저장할 변수
 	
 	// 팩토리와 1:1로 연결되는 COM객체
-	myFactory->CreateInstance(nullptr,
-		__uuidof(myCOMObject), // COM객체를 형변환하여 사용할 인터페이스 ID
-		(void**)myCOMObject.GetAddressOf()); // 인터페이스 포인터를 저장할 변수
+	pIMyFactory->CreateInstance(nullptr,
+		__uuidof(cpMyCOMObject), // COM객체를 형변환하여 사용할 인터페이스 ID
+		(void**)cpMyCOMObject.GetAddressOf()); // 인터페이스 포인터를 저장할 변수
 
 	// COM객체의 사용
-	myCOMObject->Hello();
-	myCOMObject->Bye();
+	cpMyCOMObject->Hello();
+	cpMyCOMObject->Bye();
 
 	// 팩토리가 부가적으로 생성한 COM객체
-	myFactory->CreateOther(otherObject.GetAddressOf());
+	pIMyFactory->CreateOther(cpOtherObject.GetAddressOf());
 	// COM객체의 사용
-	otherObject->Say();	
+	cpOtherObject->Say();
+
+	pIMyFactory->Release(); // 참조가 0일때 스스로 delete
 }

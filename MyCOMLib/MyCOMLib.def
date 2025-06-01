@@ -1,4 +1,4 @@
-LIBRARY MyCOMLib
+LIBRARY 3_MyCOMLib
 EXPORTS
     CreateMyFactory
     DllRegisterServer PRIVATE

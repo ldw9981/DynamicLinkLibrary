@@ -5,9 +5,9 @@
 #include "../MyFuncLib/MyFuncLib.h"
 
 #ifdef _DEBUG
-#pragma comment(lib, "../x64/Debug/MyFuncLib.lib")
+#pragma comment(lib, "../x64/Debug/0_MyFuncLib.lib")
 #else   
-#pragma comment(lib, "../x64/Release/MyFuncLib.lib")
+#pragma comment(lib, "../x64/Release/0_MyFuncLib.lib")
 #endif
 
 int main()

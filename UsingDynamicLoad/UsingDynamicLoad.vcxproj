@@ -24,6 +24,7 @@
     <ProjectGuid>{f37c0e33-3d72-43ef-8683-7e27846d82f3}</ProjectGuid>
     <RootNamespace>UsingDynamicLoad</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>2_UsingDynamicLoad</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
