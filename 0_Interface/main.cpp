@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "KomPtr.h"
 class IUnkown
 {
 public:
@@ -135,10 +135,14 @@ int main()
 	CreateChild(&pInterface);
 	IChildOther* pIChlidOther=nullptr;
 	pInterface->QueryInterface("class IChildOther", (void**)&pIChlidOther);
-
 	pInterface->Attack1();
 	pIChlidOther->Defence();
-
 	pInterface->Release();
 	pIChlidOther->Release();
+
+
+	// ComPtr테스트
+	KomPtr<IChild> cptrIChild;
+	CreateChild((IChild**)cptrIChild.GetAddressOf()); // &cptrIChild.m_ptr
+	// cptrIChild 소멸자에서 Release() 를 호출해준다.
 }
